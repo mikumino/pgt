@@ -1,14 +1,18 @@
 let pirate = document.getElementById("pgt");
 let song = document.getElementById("song");
+let isAwake = false;
+let pirateImages = ["styles/images/pgt1.png", "styles/images/pgt.png"]
 
 function changeImage() {
-    if (pirate.style.opacity == "100") {
-        pirate.style.opacity = "0";
-        song.play();
+    if (isAwake) {
+        isAwake = false;
+        pirate.src = pirateImages[0];
+        song.pause();
     }
     else {
-        pirate.style.opacity = "100";
-        song.pause();
+        isAwake = true;
+        pirate.src = pirateImages[1];
+        song.play();
     }
 }
 
